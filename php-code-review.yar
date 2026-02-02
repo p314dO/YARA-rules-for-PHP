@@ -52,4 +52,32 @@ include "p314d0-yara-rules/information-disclosure/error-message-disclosure.yar"
 include "p314d0-yara-rules/information-disclosure/sensitive-comments-disclosure.yar"
 include "p314d0-yara-rules/information-disclosure/sql-files-with-credentials.yar"
 
+/*
+    YARA Rule: Missing Security Flags on Cookies
+    
+    Description:
+        Detecta el uso de setcookie() sin los flags de seguridad necesarios:
+        - HttpOnly: Previene acceso desde JavaScript (protección XSS)
+        - Secure: Solo transmite cookie por HTTPS
+        - SameSite: Protección contra CSRF
+        
+        Las cookies de autenticación deben SIEMPRE usar estos flags.
+    
+    Author: Security Analysis
+    Date: 2026-02-02
+    Severity: MEDIUM to HIGH
+    
+    References:
+        - OWASP Top 10 2021: A05:2021 – Security Misconfiguration
+        - CWE-614: Sensitive Cookie in HTTPS Session Without 'Secure' Attribute
+        - CWE-1004: Sensitive Cookie Without 'HttpOnly' Flag
+*/
+
+include "p314d0-yara-rules/cookie-security-flags/authentication-cookie-insecure.yar"
+include "p314d0-yara-rules/cookie-security-flags/cookie-without-security-flags.yar"
+include "p314d0-yara-rules/cookie-security-flags/cookie-secure-false.yar"
+include "p314d0-yara-rules/cookie-security-flags/cookie-no-samesite.yar"
+include "p314d0-yara-rules/cookie-security-flags/session-cookie-insecure-config.yar"
+include "p314d0-yara-rules/cookie-security-flags/cookie-httponly-false.yar"
+
 
