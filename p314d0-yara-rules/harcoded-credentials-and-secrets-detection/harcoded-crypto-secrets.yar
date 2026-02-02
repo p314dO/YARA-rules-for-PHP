@@ -1,4 +1,4 @@
-rule PHP_Hardcoded_Crypto_Secrets
+rule Hardcoded_Crypto_Secrets
 {
     meta:
         description = "Detecta secretos criptográficos hardcodeados en implementaciones"

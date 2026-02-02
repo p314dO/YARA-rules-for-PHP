@@ -1,4 +1,4 @@
-rule PHP_Hardcoded_Credentials
+rule Hardcoded_Credentials
 {
     meta:
         description = "Detecta credenciales hardcodeadas en código PHP"

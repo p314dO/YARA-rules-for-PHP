@@ -1,4 +1,4 @@
-rule PHP_Hardcoded_DB_Credentials_Specific
+rule Hardcoded_DB_Credentials_Specific
 {
     meta:
         description = "Detecta patrones específicos de credenciales de base de datos hardcodeadas"
